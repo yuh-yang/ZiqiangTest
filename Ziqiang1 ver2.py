@@ -10,17 +10,14 @@ def make_qrcode(text):
     image.get_image().show()
     print("你的二维码已保存为qrcode.png")
 
-
 def sha256_convert(text):
     sha256 = hashlib.sha256()
     sha256.update(text)
     print(sha256.hexdigest())
 
-
 def base64_encode(text):
     stri = base64.b64encode(text)
     print(bytes.decode(stri))
-
 
 def base64_decode(text):
     stri = base64.b64decode(text)
@@ -33,11 +30,13 @@ while True:
         text = input("请输入文本：")
         make_qrcode(text)
         continue
+        
     if choose == "1":
         text = input("请输入文本：")
         text1 = text.encode("utf-8")
         sha256_convert(text1)
         continue
+        
     if choose == "2":
         while True:
             choose1 = input("解码输入1，编码输入2：")
@@ -47,11 +46,13 @@ while True:
                 text = str.encode(s)
                 base64_decode(text)
                 break
+                
             if choose1 =="2":
                 s = input("请输入文本：")
                 text = str.encode(s)
                 base64_encode(text)
                 break
+                
             else:
                 print("您的输入不正确，请输入指定数字：")
         continue
