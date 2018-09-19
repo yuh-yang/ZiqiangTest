@@ -52,6 +52,7 @@ while True:
                     text = str.encode(s)
                     base64_decode(text)
                     break
+                    
             if choose1 =="2":
                 s = input("请输入文本：")
                 text = str.encode(s)
