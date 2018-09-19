@@ -43,4 +43,39 @@ if choose == "2":
         s = input("请输入文本：")
         text=str.encode(s)
         base64_encode(text)
+while True:
+    choose = input("输入1实现sha256加密，2实现base64加解密，3实现字符串生成二维码，4退出：")
 
+    if choose == "3":
+        text = input("请输入文本：")
+        make_qrcode(text)
+        continue
+    if choose == "1":
+        text = input("请输入文本：")
+        text1 = text.encode("utf-8")
+        sha256_convert(text1)
+        continue
+        while True:
+            choose1 = input("解码输入1，编码输入2：")
+
+            if choose1 == "1":
+                s = input("请输入文本：")
+                text = str.encode(s)
+                base64_decode(text)
+                break
+            if choose1 =="2":
+                s = input("请输入文本：")
+                text = str.encode(s)
+                base64_encode(text)
+                break
+            else:
+                print("您的输入不正确，请输入指定数字：")
+        continue
+
+    if choose == "4":
+        print("谢谢使用！")
+        break
+
+    else:
+        print("您的输入不正确，请输入指定数字：")
+        continue
