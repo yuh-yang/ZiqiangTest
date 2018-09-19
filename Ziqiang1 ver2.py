@@ -42,11 +42,16 @@ while True:
             choose1 = input("解码输入1，编码输入2：")
 
             if choose1 == "1":
-                s = input("请输入文本：")
-                text = str.encode(s)
-                base64_decode(text)
-                break
-                
+                try:
+                    s = input("请输入文本：")
+                    text = str.encode(s)
+                    base64_decode(text)
+                    break
+                except:
+                    s = input("非base64编码字符，请确认后重新输入：")
+                    text = str.encode(s)
+                    base64_decode(text)
+                    break
             if choose1 =="2":
                 s = input("请输入文本：")
                 text = str.encode(s)
