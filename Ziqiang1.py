@@ -3,7 +3,6 @@
 import qrcode
 import base64
 import hashlib
-choose = input("输入1实现sha256加密，2实现base64加解密，3实现字符串生成二维码:")
 
 def make_qrcode(text):
     image = qrcode.make(text)
@@ -11,38 +10,22 @@ def make_qrcode(text):
     image.get_image().show()
     print("你的二维码已保存为qrcode.png")
 
+
 def sha256_convert(text):
     sha256 = hashlib.sha256()
     sha256.update(text)
     print(sha256.hexdigest())
 
+
 def base64_encode(text):
-    stri=base64.b64encode(text)
+    stri = base64.b64encode(text)
     print(bytes.decode(stri))
+
 
 def base64_decode(text):
-    stri=base64.b64decode(text)
+    stri = base64.b64decode(text)
     print(bytes.decode(stri))
 
-if choose == "3":
-    text = input("请输入文本：")
-    make_qrcode(text)
-
-if choose == "1":
-    text = input("请输入文本：")
-    text1=text.encode("utf-8")
-    sha256_convert(text1)
-
-if choose == "2":
-    choose1 = input("解码输入1，编码输入2:")
-    if choose1 == "1":
-        s = input("请输入文本：")
-        text=str.encode(s)
-        base64_decode(text)
-    else:
-        s = input("请输入文本：")
-        text=str.encode(s)
-        base64_encode(text)
 while True:
     choose = input("输入1实现sha256加密，2实现base64加解密，3实现字符串生成二维码，4退出：")
 
@@ -55,6 +38,7 @@ while True:
         text1 = text.encode("utf-8")
         sha256_convert(text1)
         continue
+    if choose == "2":
         while True:
             choose1 = input("解码输入1，编码输入2：")
 
