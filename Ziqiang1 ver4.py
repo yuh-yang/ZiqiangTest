@@ -3,7 +3,7 @@
 import qrcode
 import base64
 import hashlib
-import re
+
 
 def make_qrcode(text):
     image = qrcode.make(text)
@@ -34,27 +34,31 @@ while True:
         text = input("请输入文本：")
         make_qrcode(text)
         continue
+
     if choose == "1":
         text = input("请输入文本：")
         text1 = text.encode("utf-8")
         sha256_convert(text1)
         continue
+
     if choose == "2":
         while True:
             choose1 = input("解码输入1，编码输入2：")
 
             if choose1 == "1":
                 while True:
-                        s = input("请输入base64码：")
-                        match64 = re.match(r'[A-Za-z0-9+/]{4} *[A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==', s)
-                        if match64:
-                            text = str.encode(s)
-                            base64_decode(text)
-                            break
-
-                        else:
+                        s = input("请输入base64码，或输入4退出：")
+                        try:
+                            if s == "4":
+                                break
+                            else:
+                                text = str.encode(s)
+                                base64_decode(text)
+                        except:
                             print("输入非base64码，请确认后重新输入。")
                             continue
+                        else:
+                            break
                 break
 
             if choose1 =="2":
@@ -62,7 +66,6 @@ while True:
                 text = str.encode(s)
                 base64_encode(text)
                 break
-
             else:
                 print("您的输入不正确，请输入指定数字。")
         continue
