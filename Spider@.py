@@ -1,8 +1,9 @@
 import re
 import urllib.request
 import urllib.parse
-
 from bs4 import BeautifulSoup
+
+
 print("--武汉大学计算机学院官网通知爬虫--")
 print("每页有12条通知，从第一页开始爬取。")
 rroot_url = 'http://cs.whu.edu.cn/news_list.aspx?category_id=54&page='  #一级页面的url
